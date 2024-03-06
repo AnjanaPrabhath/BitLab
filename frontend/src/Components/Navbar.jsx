@@ -9,12 +9,15 @@ const Navbar = () => {
     }
 
   return (
-    <div className='flex justify-between items-center h-18 max-w[1240px] mx-auto px-4 text-white border-b border-b-green-950 bg-black'>
-        <h1 className='w-full text-3xl font-bold text-[#00df9a] '>B i t L a b</h1>
+    <div className='flex justify-between items-center h-[60px] max-w[1240px] mx-[50px] px-4 text-white border-b border-b-green-950 bg-[#262626]'>
+        <div className='block cursor-pointer'>
+            <h1 className='w-full text-3xl font-semibold text-[#00df9a] '>B i t L a b</h1>
+        </div>
+            
         <ul className='hidden md:flex uppercase font-semibold'>
             <li className='p-4 mx-5 cursor-pointer hover:text-[#00df9a] duration-300'>Compilor</li>
             <li className='p-4 mx-5 cursor-pointer hover:text-[#00df9a] duration-300'>Labsheet</li>
-           
+            <button className='bg-[#00df9a] rounded-md w-[150px] h-[35px] font-medium  mx-auto px-8 my-auto text-black'>My account</button>
         </ul>
         <div onClick={handleNav} className='block md:hidden'>
             {!nav ? <AiOutlineClose size={20}/> : <AiOutlineMenu size={20}/>}
