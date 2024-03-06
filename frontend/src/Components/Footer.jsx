@@ -1,4 +1,5 @@
 import React from 'react'
+import Logo from '../Assets/Logo.png'
 import {
     FaDribbbleSquare,
     FaFacebookSquare,
@@ -12,7 +13,7 @@ const Footer = () => {
     
     <div className='max-w-[1240px] mx-auto py-16 grid lg:grid-cols-3 gap-8 text-gray-300'>
         <div>
-           <h1 className='w-full text-3xl font-bold text-[#00df9a]'>BitLab</h1>
+           <img src={Logo} className='h-[60px] mt-8' alt="logo" />
            <p className='py-4 pr-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam saepe quidem rem provident ducimus sint corporis ab incidunt ut dolore?</p>
            <div className='flex md:w-[75%] my-6 justify-between'>
             <FaDribbbleSquare size={30}/>
