@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+const ProfileNavbar = () => {
     const [nav, setNav] = useState(false)
 
     const handleNav = () => {
@@ -20,8 +20,8 @@ const Navbar = () => {
         <ul className='hidden md:flex uppercase font-semibold'>
             <li className='p-4 mx-5 cursor-pointer hover:text-[#00df9a] duration-300'>Compilor</li>
             <li className='p-4 mx-5 cursor-pointer hover:text-[#00df9a] duration-300'>Labsheet</li>
-            <Link to='/admin' className='my-auto'>
-            <button className='bg-[#00df9a] rounded-md w-[150px] h-[35px] font-medium  mx-auto px-8 my-auto text-black'>Login</button>            
+            <Link to='/' className='my-auto'>
+            <button className='bg-[#00df9a] rounded-md w-[150px] h-[35px] font-medium  mx-auto px-8 my-auto text-black'>Logout</button>            
             </Link>
         </ul>
         <div onClick={handleNav} className='block md:hidden'>
@@ -39,4 +39,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default ProfileNavbar
