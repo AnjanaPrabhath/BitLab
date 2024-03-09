@@ -18,11 +18,11 @@ const ProfileNavbar = () => {
             </Link>
         </div>
             
-        <ul className='hidden md:flex uppercase font-semibold'>
+        <ul className='hidden md:flex uppercase font-semibold mt-5'>
             <li className='p-4 mx-5 cursor-pointer hover:text-[#06C6D5] duration-300'>Compilor</li>
             <li className='p-4 mx-5 mr-10 cursor-pointer hover:text-[#06C6D5] duration-300'>Labsheet</li>
             <Link to='/' className='my-auto'>
-            <button className='bg-[#06C6D5] rounded-md w-[150px] h-[35px] font-medium  mx-auto px-8 my-auto text-black'>LOGOUT</button>            
+            <button className='bg-[#06C6D5] w-[120px] h-[30px] font-medium  mx-auto px-8 my-auto text-black hover:bg-[#2df1ff] duration-300'>LOGOUT</button>            
             </Link>
         </ul>
         <div onClick={handleNav} className='block md:hidden'>
