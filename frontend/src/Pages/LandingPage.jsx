@@ -1,17 +1,17 @@
 import React from 'react'
-import Compilor from '../Components/Compilor'
+import Hero from '../Components/Hero'
 import Footer from '../Components/Footer'
 import Navbar from '../Components/Navbar'
 
 
-const Homepage = () => {
+const LandingPage = () => {
   return (
     <div>
       <Navbar/>
-      <Compilor/>
+      <Hero/>
       <Footer/>
     </div>
   )
 }
 
-export default Homepage
+export default LandingPage
