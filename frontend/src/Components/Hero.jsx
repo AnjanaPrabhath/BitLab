@@ -14,10 +14,10 @@ const Hero = () => {
 
           <div className='max-w-[1300px] w-full mx-auto items-center '>
             
-            <div className='absolute w-[1000px] h-[530px] bg-black opacity-40'></div>
+            <div className='absolute w-[1300px] h-[530px] bg-black opacity-40'></div>
         
             {/* heading */}
-            <img className='mt-[70px] w-[90%] object-cover ' src={Poster} alt="" />
+            <img className='mt-[70px] w-[100%] object-cover ' src={Poster} alt="" />
 
               {/* meka hadala iwara na */}
               <div className='absolute w-full top-[20%] mx-auto '>
