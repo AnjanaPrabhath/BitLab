@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import LoginForm from '../Components/LoginForm'
 import Logo from '../Assets/Logo.png'
+import LoginWithPassword from '../Components/LoginWithPassword'
 
 const LoginPage = () => {
+  const [turn, setTurn] = useState(true)
+
+  const handleToggleTurn = () => {
+    setTurn(!turn);
+  }
   return (
     <div className='flex w-full h-screen'>
-
       {/* left screen */}
       <div className='w-full flex items-center justify-center lg:w-1/2 bgb bg-black'>
-        
-        <LoginForm/>
+       
+        {turn ? <LoginForm toggleTurn={handleToggleTurn}/>:<LoginWithPassword toggleTurn={handleToggleTurn}/>}
 
       </div>
       

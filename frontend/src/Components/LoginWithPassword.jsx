@@ -1,8 +1,10 @@
 import React from 'react'
 
-const LoginWithPassword = () => {
+const LoginWithPassword = ({toggleTurn}) => {
   return (
+    
     <div className='text-white'>
+      <button className='absolute' onClick={toggleTurn}>Back</button>
         <h1 className='text-3xl font-medium text-center'>Welcome </h1>
         <p className='py-3'>please enter your username and wait for your password </p>
         <div>
