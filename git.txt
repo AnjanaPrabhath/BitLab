@@ -1,0 +1,20 @@
+git clone <link>
+
+git fetch - branches tika remote eke idn local ekata enw
+
+git checkout <Name eka> - meken adala branch ekata switch wenw
+
+thamange wade kra
+commit kra
+pull ekak gatta
+aulak nattan,
+git push kra
+
+mn merge krnnm
+
+mn ekak krla iwr wela push krnna kalin e weddi thiyana eke copy ekak aran blnw thathwe.
+meka krnne mehemai,
+
+git pull origin main - main eke thiyana eka enw. ethankota conflict ekak tynwd baluwhaki. aulak nattan git push ekak denw.
+
+git ekata ghin merge krnna thiyenne it pse

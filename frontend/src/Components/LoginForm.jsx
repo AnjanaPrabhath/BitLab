@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import LoginWithPassword from './LoginWithPassword'
 
 
-const LoginForm = () => {
+const LoginForm = ({toggleTurn}) => {
+
   return (
     <div className='text-white'>
         <h1 className='text-3xl font-medium text-center'>Welcome to BitLab</h1>
@@ -17,7 +18,7 @@ const LoginForm = () => {
             </div>
             <div>
               <Link to={LoginWithPassword}>
-                <button className='bg-blue-400 my-5 px-4 py-1 w-full'>NEXT</button>              
+                <button className='bg-blue-400 my-5 px-4 py-1 w-full' onClick={toggleTurn}>NEXT</button>              
               </Link>
             </div>
         </div>
