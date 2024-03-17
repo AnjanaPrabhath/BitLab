@@ -2,7 +2,7 @@ import React from 'react'
 
 const AcademicPeriod = () => {
   return (
-    <div>AcademicPeriod</div>
+    <div className='text-white'>AcademicPeriod</div>
   )
 }
 

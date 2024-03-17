@@ -1,5 +1,6 @@
 import React from 'react'
 import ProfileNavbar from '../Components/ProfileNavbar'
+import { Link } from 'react-router-dom'
 
 
 const AdminPage = () => {
@@ -21,8 +22,9 @@ const AdminPage = () => {
         <div className='max-w-[1100px] mx-auto grid md:grid-cols-3 gap-8 mt-[100px] text-white text-xl'>
 
           
-          
-        <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Academic Period</button>
+        <Link to='/admin/academic_period'>
+          <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Academic Period</button>
+        </Link>  
         <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Student Details</button>
         <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Learning Portal</button>
         <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Edit Personal details</button>
