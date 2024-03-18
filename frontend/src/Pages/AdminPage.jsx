@@ -25,11 +25,26 @@ const AdminPage = () => {
         <Link to='/admin/academic_period'>
           <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Academic Period</button>
         </Link>  
-        <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Student Details</button>
-        <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Learning Portal</button>
-        <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Edit Personal details</button>
-        <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Session Password</button>
-        <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>hello</button>
+        
+        <Link to='/admin/student_details'>
+          <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Student Details</button>
+        </Link>
+
+        <Link to='/admin/learning_portal'>
+          <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Learning Portal</button>
+        </Link>
+
+        <Link to='/admin/edit_personal_details'>
+          <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Edit Personal details</button>
+        </Link>
+
+        <Link to='/admin/session_password'>
+          <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Session Password</button>
+        </Link>
+
+        <Link to='/admin/academic_period'>
+          <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>hello</button>
+        </Link>
           
 
         </div>
