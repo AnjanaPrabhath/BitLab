@@ -28,6 +28,8 @@ const AdminPage = () => {
         <Link to='/admin/sandani/learning_portal'> {/* Link to the Learning Portal route */}
           <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Learning Portal</button>
         </Link> 
+
+        <Link>
         <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Student Details</button>
         <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Learning Portal</button>
         <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Edit Personal details</button>
