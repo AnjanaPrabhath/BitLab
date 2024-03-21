@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProfileNavbar from '../../Components/ProfileNavbar';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const LabSheet = () => {
   const [view, setView] = useState('years');
@@ -51,121 +45,60 @@ const LabSheet = () => {
   const renderYears = () => {
     return (
       <>
-        <Card onClick={() => handleYearClick('Year 1')} sx={{ maxWidth: 400, cursor: 'pointer', backgroundColor: '#06C6D5' }}>
-          <CardContent>
-            <Typography gutterBottom variant="h4" component="div" color="text.primary">
-              1st Year
-            </Typography>
-            <Typography variant="body2" color="text.primary">
-              Some random content for Year 1.
-            </Typography>
-          </CardContent>
-        </Card>
-        <Card onClick={() => handleYearClick('Year 2')} sx={{ maxWidth: 400, cursor: 'pointer', backgroundColor: '#06C6D5' }}>
-          <CardContent>
-            <Typography gutterBottom variant="h4" component="div" color="text.primary">
-            2nd Year
-            </Typography>
-            <Typography variant="body2" color="text.primary">
-              Some random content for Year 2.
-            </Typography>
-          </CardContent>
-        </Card>
-        <Card onClick={() => handleYearClick('Year 3')} sx={{ maxWidth: 400, cursor: 'pointer', backgroundColor: '#06C6D5' }}>
-          <CardContent>
-            <Typography gutterBottom variant="h4" component="div" color="text.primary">
-            3rd Year
-            </Typography>
-            <Typography variant="body2" color="text.primary">
-              Some random content for Year 3.
-            </Typography>
-          </CardContent>
-        </Card>
-        <Card onClick={() => handleYearClick('Year 4')} sx={{ maxWidth: 400, cursor: 'pointer', backgroundColor: '#06C6D5' }}>
-          <CardContent>
-            <Typography gutterBottom variant="h4" component="div" color="text.primary">
-            4th Year
-            </Typography>
-            <Typography variant="body2" color="text.primary">
-              Some random content for Year 4.
-            </Typography>
-          </CardContent>
-        </Card>
-      </>
-    );
-  };
-  
-  const renderSems = () => {
-    return (
-      <>
-        <Card onClick={() => handleSemClick('01')} sx={{ maxWidth: 275, cursor: 'pointer', backgroundColor: '#06C6D5' }}>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Semester 1
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Some random content for Semester 1.
-            </Typography>
-          </CardContent>
-        </Card>
-        <Card onClick={() => handleSemClick('02')} sx={{ maxWidth: 275, cursor: 'pointer', backgroundColor: '#06C6D5' }}>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-            Semester 2
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Some random content for Semester 2.
-            </Typography>
-          </CardContent>
-        </Card>
+        <div onClick={() => handleYearClick('Year 1')} className="max-w-xs cursor-pointer bg-[#06C6D5] p-9 rounded-lg hover:bg-[#2df1ff]">
+          <h4 className="text-xl text-black font-bold">1st Year</h4>
+          <p className="text-black">Click for Year 1 content.</p>
+        </div>
+        <div onClick={() => handleYearClick('Year 1')} className="max-w-xs cursor-pointer bg-[#06C6D5] p-9 rounded-lg hover:bg-[#2df1ff]">
+          <h4 className="text-xl text-black font-bold">2nd Year</h4>
+          <p className="text-black">Click for Year 2 content.</p>
+        </div>
+        <div onClick={() => handleYearClick('Year 1')} className="max-w-xs cursor-pointer bg-[#06C6D5] p-9 rounded-lg hover:bg-[#2df1ff]">
+          <h4 className="text-xl text-black font-bold">3rd Year</h4>
+          <p className="text-black">Click for Year 3 content.</p>
+        </div>
+        <div onClick={() => handleYearClick('Year 1')} className="max-w-xs cursor-pointer bg-[#06C6D5] p-9 rounded-lg hover:bg-[#2df1ff]">
+          <h4 className="text-xl text-black font-bold">4th Year</h4>
+          <p className="text-black">Click for Year 4 content.</p>
+        </div>
       </>
     );
   };
 
-  
+  const renderSems = () => {
+    return (
+      <>
+        <div onClick={() => handleSemClick('01')} className="max-w-xs cursor-pointer bg-[#06C6D5] p-6 rounded-lg hover:bg-[#2df1ff]">
+          <h5 className="text-lg text-black font-bold">Semester 1</h5>
+          <p className="text-black">Content for Semester 1.</p>
+        </div>
+        <div onClick={() => handleSemClick('01')} className="max-w-xs cursor-pointer bg-[#06C6D5] p-6 rounded-lg hover:bg-[#2df1ff]">
+          <h5 className="text-lg text-black font-bold">Semester 1</h5>
+          <p className="text-black">Content for Semester 1.</p>
+        </div>
+      </>
+    );
+  };
+
   const renderModules = () => {
     return (
       <>
-        <Card onClick={() => handleModuleClick('DS')} sx={{ maxWidth: 275, cursor: 'pointer', backgroundColor: '#06C6D5' }}>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              DS Module
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Some random content for DS module.
-            </Typography>
-          </CardContent>
-        </Card>
-        <Card onClick={() => handleModuleClick('EAP')} sx={{ maxWidth: 275, cursor: 'pointer', backgroundColor: '#06C6D5' }}>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              EAP Module
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Some random content for EAP module.
-            </Typography>
-          </CardContent>
-        </Card>
-        <Card onClick={() => handleModuleClick('SE')} sx={{ maxWidth: 275, cursor: 'pointer', backgroundColor: '#06C6D5' }}>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              SE Module
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Some random content for SE module.
-            </Typography>
-          </CardContent>
-        </Card>
-        <Card onClick={() => handleModuleClick('ER')} sx={{ maxWidth: 275, cursor: 'pointer', backgroundColor: '#06C6D5' }}>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              ER Module
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Some random content for ER module.
-            </Typography>
-          </CardContent>
-        </Card>
+        <div onClick={() => handleModuleClick('DS')} className="max-w-xs cursor-pointer bg-[#06C6D5] p-6 rounded-lg hover:bg-[#2df1ff]">
+          <h5 className="text-lg text-black font-bold">DS Module</h5>
+          <p className="text-black">Database Systems - IT3020 [2023/FEB].</p>
+        </div>
+        <div onClick={() => handleModuleClick('DS')} className="max-w-xs cursor-pointer bg-[#06C6D5] p-6 rounded-lg hover:bg-[#2df1ff]">
+          <h5 className="text-lg text-black font-bold">ITPM Module</h5>
+          <p className="text-black">IT Project Management - IT3040 [2023/FEB].</p>
+        </div>
+        <div onClick={() => handleModuleClick('DS')} className="max-w-xs cursor-pointer bg-[#06C6D5] p-6 rounded-lg hover:bg-[#2df1ff]">
+          <h5 className="text-lg text-black font-bold">NDM Module</h5>
+          <p className="text-black">Network Design and Management - IT3010 [2023/FEB].</p>
+        </div>
+        <div onClick={() => handleModuleClick('DS')} className="max-w-xs cursor-pointer bg-[#06C6D5] p-6 rounded-lg hover:bg-[#2df1ff]">
+          <h5 className="text-lg text-black font-bold">PAF Module</h5>
+          <p className="text-black">Programming Applications and Frameworks - IT3030 [2023/FEB].</p>
+        </div>
       </>
     );
   };
@@ -174,40 +107,16 @@ const LabSheet = () => {
     return (
       <>
         <Link to="/admin/sandani/learning_portal">
-          <Card sx={{ maxWidth: 275, cursor: 'pointer', backgroundColor: '#06C6D5' }}>
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Session 1
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Some random content for Session 1.
-              </Typography>
-            </CardContent>
-          </Card>
+          <div className="max-w-xs cursor-pointer bg-[#06C6D5] p-6 rounded-lg hover:bg-[#2df1ff]">
+            <h5 className="text-lg text-black font-bold">Session 1</h5>
+            <p className="text-black">Some random content for Session 1.</p>
+          </div>
         </Link>
         <Link to="/admin/sandani/learning_portal">
-          <Card sx={{ maxWidth: 275, cursor: 'pointer', backgroundColor: '#06C6D5' }}>
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Session 2
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Some random content for Session 2.
-              </Typography>
-            </CardContent>
-          </Card>
-        </Link>
-        <Link to="/admin/sandani/learning_portal">
-          <Card sx={{ maxWidth: 275, cursor: 'pointer', backgroundColor: '#06C6D5' }}>
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Session 3
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Some random content for Session 3.
-              </Typography>
-            </CardContent>
-          </Card>
+          <div className="max-w-xs cursor-pointer bg-[#06C6D5] p-6 rounded-lg hover:bg-[#2df1ff]">
+            <h5 className="text-lg text-black font-bold">Session 1</h5>
+            <p className="text-black">Some random content for Session 1.</p>
+          </div>
         </Link>
       </>
     );
@@ -218,7 +127,7 @@ const LabSheet = () => {
       case 'years':
         return renderYears();
       case 'semesters':
-            return renderSems();
+        return renderSems();
       case 'modules':
         return renderModules();
       case 'sessions':
@@ -231,32 +140,24 @@ const LabSheet = () => {
   return (
     <div>
       <ProfileNavbar />
-      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-         <Typography variant="h4" gutterBottom style={{ color: '#FFFFFF' }}>
-             Course Category
-        </Typography>
-      </Box>
+      <div className="flex justify-center mt-14">
+         <h4 className="text-2xl text-white font-bold mb-4">Course Category</h4>
+      </div>
       {view !== 'years' && (
-        <Button
-        variant="contained"
-        color="primary"
-        startIcon={<ArrowBackIcon />}
-        onClick={handleBackButtonClick}
-        sx={{ position: 'fixed', top: '640px', left: '20px', zIndex: 1000, backgroundColor: '#06C6D5', color: 'black' }}
-      >
-        Back
-      </Button>
-      
+      <button
+      className="fixed bottom-10 left-16 z-10 bg-[#06C6D5] text-black font-bold px-8 py-2 rounded-lg hover:bg-[#2df1ff]"
+      onClick={handleBackButtonClick}
+    >
+      Back
+    </button>
+    
       )}
 
-      {/* Add Course Category heading */}
-      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: 'calc(100vh - 60px)', paddingTop: '20px' }}>
-        <Box sx={{ maxWidth: '80%', width: '100%' }}>
-          <Box sx={{ display: 'flex',top: '600px', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
-            {renderContent()}
-          </Box>
-        </Box>
-      </Box>
+      <div className="flex justify-center items-start min-h-screen pt-24">
+        <div className="max-w-4xl w-full flex justify-center gap-4 flex-wrap">
+          {renderContent()}
+        </div>
+      </div>
     </div>
   );
 };
