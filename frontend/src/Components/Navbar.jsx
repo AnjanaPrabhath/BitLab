@@ -20,7 +20,9 @@ const Navbar = () => {
             
         <ul className='hidden md:flex uppercase font-medium mt-5'>
             <li className='p-4 mx-5 cursor-pointer hover:text-[#06C6D5] duration-300'>Compilor</li>
-            <li className='p-4 mx-5 mr-10 cursor-pointer hover:text-[#06C6D5] duration-300'>Labsheet</li>
+            <li className='p-4 mx-5 mr-10 cursor-pointer hover:text-[#06C6D5] duration-300'>
+                <Link to='/admin/sandani/lab_sheet' className='text-white'>Labsheet</Link>
+            </li>
             <Link to='/admin' className='my-auto'>
             <button className='bg-[#06C6D5] w-[120px] h-[30px] font-medium  mx-auto px-8 my-auto text-black hover:bg-[#2df1ff] duration-300'>LOGIN</button>            
             </Link>
