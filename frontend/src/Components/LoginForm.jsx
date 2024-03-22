@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import LoginWithPassword from './LoginWithPassword'
 
 
+
 const LoginForm = ({toggleTurn}) => {
 
   return (
@@ -17,6 +18,14 @@ const LoginForm = ({toggleTurn}) => {
                 />
             </div>
             <div>
+
+            <p className='text-center'>if you dont have account, 
+            <Link to='/registration'>
+            <span className='text-center underline'>register now</span >
+            </Link>
+            </p>
+            
+
               <Link to={LoginWithPassword}>
                 <button className='bg-blue-400 my-5 px-4 py-1 w-full' onClick={toggleTurn}>NEXT</button>              
               </Link>
