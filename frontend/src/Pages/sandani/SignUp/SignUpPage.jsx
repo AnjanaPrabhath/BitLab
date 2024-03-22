@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SignUpForm from './SignUpForm';
-import Logo from '../../../Assets/Logo.png';
+import RegImage from '../../../Assets/RegisterImage.png';
 import SignUpWithPassword from './SignUpWithPassword';
 
 const SignUpPage = () => {
@@ -18,8 +18,8 @@ const SignUpPage = () => {
       </div>
       
       {/* right screen */}
-      <div className='hidden lg:flex h-full w-1/2 items-center justify-center bg-black'>
-        <img src={Logo} className='w-[500px] animate-pulse' alt='' />
+      <div className='hidden lg:flex h-full w-1/2 items-center justify-start bg-black'>
+        <img src={RegImage} className='w-[700px] ' alt='' />
       </div>
     </div>
   );

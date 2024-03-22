@@ -23,7 +23,7 @@ const AcademicPeriod = () => {
 {/* academic period year 01*/}
 
     <div className='max-w-[1000px] mx-auto grid md:grid-cols-2 gap-4 mt-[80px] text-white text-xl mb-0'>
-      <Link to='/'>
+      <Link to='/admin/academic_period/modules'>
         <button className='bg-[#191919] px-[150px]  hover:bg-slate-600 duration-500 h-[60px]'>Year 01 - Semester 01</button>
       </Link>
 
