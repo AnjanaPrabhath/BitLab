@@ -8,6 +8,7 @@ import LearningPortal from './Pages/sandani/LearningPortal';
 import StudentDetails from './Pages/StudentDetails';
 import EditPersonalDetails from './Pages/EditPersonalDetails';
 import SessionPassword from './Pages/SessionPassword'
+import Registration from './Pages/bhagya/Registration';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Routes>
             <Route path='/' element={<LandingPage/>} />
             <Route path='/login' element={<LoginPage/>} />
+            <Route path='/registration' element={<Registration/>} />
             <Route path='/admin' element={<AdminPage/>} />
             <Route path='/admin/academic_period' element={<AcademicPeriod/>} />
             <Route path='/admin/sandani/learning_portal' element={<LearningPortal/>} />
