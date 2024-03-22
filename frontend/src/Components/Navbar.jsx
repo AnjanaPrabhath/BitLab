@@ -19,7 +19,9 @@ const Navbar = () => {
         </div>
             
         <ul className='hidden md:flex uppercase font-medium mt-5'>
-            <li className='p-4 mx-5 cursor-pointer hover:text-[#06C6D5] duration-300'>Compilor</li>
+            <li className='p-4 mx-5 cursor-pointer hover:text-[#06C6D5] duration-300'>
+                <Link to='/admin/sandani/Compiler/compiler_s_page' className='text-white'>Compiler</Link></li>
+                
             <li className='p-4 mx-5 mr-10 cursor-pointer hover:text-[#06C6D5] duration-300'>
                 <Link to='/admin/sandani/lab_sheet' className='text-white'>Labsheet</Link>
             </li>
