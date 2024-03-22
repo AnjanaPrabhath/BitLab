@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import LoginWithPassword from './LoginWithPassword'
+import SignUpPage from '../Pages/sandani/SignUp/SignUpPage'
 
 
 const LoginForm = ({toggleTurn}) => {
@@ -19,6 +20,9 @@ const LoginForm = ({toggleTurn}) => {
             <div>
               <Link to={LoginWithPassword}>
                 <button className='bg-blue-400 my-5 px-4 py-1 w-full' onClick={toggleTurn}>NEXT</button>              
+              </Link>
+              <Link to="/admin/sandani/SignUp/sign_up_page">
+                <button className='bg-blue-400 my-5 px-4 py-1 w-full'>SIGN UP</button>              
               </Link>
             </div>
         </div>

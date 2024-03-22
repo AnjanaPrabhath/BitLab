@@ -9,6 +9,8 @@ import LabSheet from './Pages/sandani/LabSheet';
 import StudentDetails from './Pages/StudentDetails';
 import EditPersonalDetails from './Pages/EditPersonalDetails';
 import SessionPassword from './Pages/SessionPassword'
+import SignUpPage from './Pages/sandani/SignUp/SignUpPage';
+import CompilerSPage from './Pages/sandani/Compiler/CompilerSPage';
 
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
             <Route path='/admin/student_details' element={<StudentDetails/>} />
             <Route path='/admin/edit_personal_details' element={<EditPersonalDetails/>} />
             <Route path='/admin/session_password' element={<SessionPassword/>} />
+            <Route path='/admin/sandani/SignUp/sign_up_page' element={<SignUpPage/>} />
+            <Route path='/admin/sandani/Compiler/compiler_s_page' element={<CompilerSPage/>} />
         </Routes>      
       </BrowserRouter>
 
