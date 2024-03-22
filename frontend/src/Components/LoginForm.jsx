@@ -20,18 +20,15 @@ const LoginForm = ({toggleTurn}) => {
             </div>
             <div>
 
-            <p className='text-center'>if you dont have account, 
-            <Link to='/registration'>
-            <span className='text-center underline'>register now</span >
-            </Link>
-            </p>
+            
             
 
               <Link to={LoginWithPassword}>
                 <button className='bg-blue-400 my-5 px-4 py-1 w-full' onClick={toggleTurn}>NEXT</button>              
               </Link>
+              <p className='text-center'>if you dont have account</p>
               <Link to="/admin/sandani/SignUp/sign_up_page">
-                <button className='bg-blue-400 my-5 px-4 py-1 w-full'>SIGN UP</button>              
+                <button className='border-blue-400 border my-5 px-4 py-1 w-full hover:text-blue-400 hover:scale-105 duration-500'>Register Now</button>              
               </Link>
             </div>
         </div>
