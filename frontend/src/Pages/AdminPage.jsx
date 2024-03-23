@@ -33,7 +33,7 @@ const AdminPage = () => {
           <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Learning Portal</button>
         </Link> 
 
-        <Link to='/admin/edit_personal_details'>
+        <Link to='/admin/sandani/SignUp/edit_student_form'>
           <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Edit Personal details</button>
         </Link>
 
