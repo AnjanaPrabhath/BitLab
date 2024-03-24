@@ -7,7 +7,7 @@ const SelectQuestion = () => {
     <div>
         <Navbar/>
 
-        <div className='flex max-w-[1100px] justify-between mx-auto mt-[100px]  text-white'>
+        <div className='flex max-w-[1100px] justify-between mx-auto mt-[50px]  text-white'>
             <h2 className='flex flex-col font-medium text-3xl'>
                 Select Questions
             </h2>
@@ -107,6 +107,14 @@ const SelectQuestion = () => {
                 <button className='bg-slate-600 cursor-pointer hover:scale-105 duration-500 px-[10px] py-1'>edit</button>
                 <button className='bg-slate-600 cursor-pointer hover:scale-105 duration-500 px-[10px] py-1'>delete</button>
                 <button className='bg-slate-600 cursor-pointer  hover:bg-[#06C6D5] hover:text-black duration-500 px-[10px] py-1'>Add to Labsheet</button>
+        </div>
+
+        {/* add Question */}
+
+        <div className='flex flex-col max-w-[1100px] mx-auto items-center justify-center mt-[30px] text-white text-xl mb-[50px]'>
+            <Link to=''>
+                <button className= 'text-center bg-[#191919] px-[150px] hover:bg-[#06C6D5] hover:scale-105 duration-500 py-4'>Add Questions</button>
+            </Link>     
         </div>
     </div>
   )
