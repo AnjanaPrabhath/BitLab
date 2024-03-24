@@ -1,8 +1,8 @@
 import React from 'react'
-import Navbar from '../Components/Navbar'
+import Navbar from '../../Components/Navbar'
 import { Link } from 'react-router-dom'
 
-const SessionPassword = () => {
+const SetPassword = () => {
   return (
     <div>
       <Navbar/>
@@ -21,19 +21,18 @@ const SessionPassword = () => {
         <div className='bg-gray-700 w-[600px] h-[350px]'>
           <div className='flex flex-col items-center text-center'>
 
-          <h2 className='text-white text-xl py-8'>Add New Password</h2>
-          
-            <input type="text"
+            <h2 className='text-white text-xl py-8'>Enter your Admin Credentials</h2>
+            <input type="password"
                 placeholder='new password'
                 className='text-center mt-[30px] w-[400px] bg-[#1f1f1f] placeholder-slate-400 text-[#d0d0d0]  rounded-md px-2 py-2 my-2 border-blue-400 '
                 />
-            <input type="text"
+            <input type="password"
                 placeholder='confirm password'
                 className='text-center w-[400px] bg-[#1f1f1f] placeholder-slate-400 text-[#d0d0d0]  rounded-md px-2 py-2 my-2 border-blue-400'
                 />
 
-            <Link to='/admin/set_password'>
-            <button className='bg-[#06C6D5] hover:bg-[#2df1ff] duration-300 my-5 px-8 py-2 ' >NEXT</button>
+            <Link to='/admin'>
+            <button className='bg-[#06C6D5] hover:bg-[#2df1ff] duration-300 my-5 px-8 py-2 ' >SUBMIT</button>
             </Link>
           </div>
         </div>
@@ -43,4 +42,4 @@ const SessionPassword = () => {
   )
 }
 
-export default SessionPassword
+export default SetPassword
