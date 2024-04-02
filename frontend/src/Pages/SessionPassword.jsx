@@ -21,7 +21,7 @@ const SessionPassword = () => {
         <div className='bg-gray-700 w-[600px] h-[350px]'>
           <div className='flex flex-col items-center text-center'>
 
-          <h2 className='text-white text-xl py-8'>Add a New Password</h2>
+          <h2 className='text-white text-xl py-8'>Add New Password</h2>
           
             <input type="text"
                 placeholder='new password'
