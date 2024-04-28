@@ -116,22 +116,22 @@ const CompilerSPage = () => {
                 let status = err.response?.status;
                 console.log("status", status);
                 if (status === 429) {
-                //  let  data = {
-                //     status: status,
-                //     timeStamp: serverTimestamp()
+                 let  data = {
+                    status: status,
+                    timeStamp: serverTimestamp()
                     
-                //     // timeStamp: FieldValue.serverTimestamp()
-                //   };
-                //   try {
-                //     await setDoc(
-                //       doc(collection(db, "users", "1aeOP38ZS1fEqRXQ1RCB9vA16Nu2", "coding_history")),
-                //       data
-                //     );
+                    // timeStamp: FieldValue.serverTimestamp()
+                  };
+                  try {
+                    await setDoc(
+                      doc(collection(db, "users", "1aeOP38ZS1fEqRXQ1RCB9vA16Nu2", "coding_history")),
+                      data
+                    );
           
-                //     console.log("Data stored in Firestore successfully!");
-                //   } catch (error) {
-                //     console.error("Error storing data in Firestore:", error);
-                //   }
+                    console.log("Data stored in Firestore successfully!");
+                  } catch (error) {
+                    console.error("Error storing data in Firestore:", error);
+                  }
                     console.log("too many requests", status);
 
                     showErrorToast(

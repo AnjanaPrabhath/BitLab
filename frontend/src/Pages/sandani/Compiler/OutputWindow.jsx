@@ -78,7 +78,7 @@ const OutputWindow = ({ outputDetails }) => {
         };
         try {
           await setDoc(
-            doc(db, "users/1aeOP38ZS1fEqRXQ1RCB9vA16Nu2", "coding_history"),
+            doc(collection(db, "users", "1aeOP38ZS1fEqRXQ1RCB9vA16Nu2", "coding_history")),
             data
           );
           console.log("Data stored in Firestore successfully!");

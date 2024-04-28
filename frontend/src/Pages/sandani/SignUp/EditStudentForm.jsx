@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getDoc, updateDoc, doc } from "firebase/firestore";
+import { toast, ToastContainer } from "react-toastify"; // Import toast and ToastContainer
+import "react-toastify/dist/ReactToastify.css"; // Import the CSS for styling
 import Logo from "../../../Assets/Logo.png";
 import { auth, db } from "../../../Services/FirebaseServises/FirebaseConfig";
 
@@ -9,9 +11,8 @@ const EditStudentForm = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
-  
-  const userId = "plvy78W2bQTBMCR3eREq3mvfJA93";
 
+  const userId = "plvy78W2bQTBMCR3eREq3mvfJA93";
 
   useEffect(() => {
     const getUserData = async () => {
@@ -20,7 +21,6 @@ const EditStudentForm = () => {
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           setUserData(docSnap.data());
-          // Initialize input fields with user data
           setFirstName(docSnap.data().firstName || "");
           setLastName(docSnap.data().lastName || "");
           setEmail(docSnap.data().email || "");
@@ -46,7 +46,16 @@ const EditStudentForm = () => {
         email: email,
         phoneNo: phoneNo
       });
-      console.log("Document successfully updated!");
+      // Show success notification
+      toast.success("User details updated successfully!", {
+        position: "top-right",
+        autoClose: 3000, // Close the notification after 3 seconds
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     } catch (error) {
       console.error("Error updating document: ", error);
     }
@@ -96,7 +105,7 @@ const EditStudentForm = () => {
                 className="bg-[#1f1f1f] placeholder-slate-400 text-[#d0d0d0]  rounded-md px-2 py-2 my-2 border-blue-400 w-full"
               />
             </div>
-            <button type="submit" className="bg-blue-500 text-white py-2 px-4 w-full rounded-md">
+            <button type="submit" className="bg-[#06C6D5] text-white py-2 px-4 w-full rounded-md">
               UPDATE
             </button>
           </div>
@@ -105,6 +114,8 @@ const EditStudentForm = () => {
       <div className="hidden lg:flex h-full w-1/2 items-center justify-center bg-black">
         <img src={Logo} className="w-[500px] animate-pulse" alt="" />
       </div>
+      {/* ToastContainer to display notifications */}
+      <ToastContainer />
     </div>
   );
 };
