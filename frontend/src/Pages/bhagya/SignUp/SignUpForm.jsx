@@ -102,7 +102,7 @@ const SignUpForm = ({ toggleTurn }) => {
               className="bg-[#1f1f1f] placeholder-slate-400 text-[#d0d0d0]  rounded-md px-2 py-2 my-2 border-blue-400 w-full"
             />
           </div>
-          <button className="bg-blue-500 text-white py-2 px-4 w-full rounded-md">
+          <button className="bg-[#06C6D5] text-white py-2 px-4 w-full rounded-md">
             REGISTER
           </button>
           <p
