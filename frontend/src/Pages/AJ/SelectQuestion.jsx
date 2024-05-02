@@ -112,7 +112,7 @@ const SelectQuestion = () => {
         {/* add Question */}
 
         <div className='flex flex-col max-w-[1100px] mx-auto items-center justify-center mt-[30px] text-white text-xl mb-[50px]'>
-            <Link to=''>
+            <Link to='/admin/academic_period/modules/question/add'>
                 <button className= 'text-center bg-[#191919] px-[150px] hover:bg-[#06C6D5] hover:scale-105 duration-500 py-4'>Add Questions</button>
             </Link>     
         </div>
