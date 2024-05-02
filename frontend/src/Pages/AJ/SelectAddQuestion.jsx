@@ -27,7 +27,7 @@ const SelectAddQuestion = () => {
                 <button className='bg-[#191919] px-[150px]  hover:bg-slate-600 duration-500 h-[130px]'>Select Questions</button>
             </Link>
 
-            <Link to=''>
+            <Link to='/admin/academic_period/modules/question/add'>
                 <button className='bg-[#191919] px-[150px]  hover:bg-slate-600 duration-500 h-[130px]'>Add Questions</button>
             </Link>     
         </div>
