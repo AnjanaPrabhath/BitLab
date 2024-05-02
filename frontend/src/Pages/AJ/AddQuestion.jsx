@@ -31,7 +31,7 @@ const AddQuestion = () => {
 
               <p className='py-3 '>Question Description </p>
               <div>
-                  <input type='text'
+                  <textarea
                   className='bg-[#1f1f1f] placeholder-slate-400 text-[#d0d0d0]  rounded-md px-2 py-2 mt-1 mb-2 border-blue-400 w-full h-[200px]'
                   />
               </div>
