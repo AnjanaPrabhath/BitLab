@@ -32,8 +32,9 @@ const StudentDetails = () => {
 
                 <div></div>
                 <div className='text-center'>Available</div>
+                <Link to="/admin/student_details/student_record">
                 <button className='bg-slate-600 cursor-pointer hover:scale-105 duration-500 px-[10px] py-1'>view record</button>
-                
+                </Link>
         </div>
 
         {/* student 02 */}
@@ -44,8 +45,9 @@ const StudentDetails = () => {
 
                 <div></div>
                 <div className='text-center'>Not Available</div>
+                <Link to="/admin/student_details/student_record">
                 <button className='bg-slate-600 cursor-pointer hover:scale-105 duration-500 px-[10px] py-1'>view record</button>
-                
+                </Link>
         </div>
 
         {/* student 03 */}
@@ -56,8 +58,9 @@ const StudentDetails = () => {
 
                 <div></div>
                 <div className='text-center'>Available</div>
+                <Link to="/admin/student_details/student_record">
                 <button className='bg-slate-600 cursor-pointer hover:scale-105 duration-500 px-[10px] py-1'>view record</button>
-                
+                </Link>
         </div>
 
         {/* student 04 */}
@@ -68,8 +71,9 @@ const StudentDetails = () => {
 
                 <div></div>
                 <div className='text-center'>Available</div>
+                <Link to="/admin/student_details/student_record">
                 <button className='bg-slate-600 cursor-pointer hover:scale-105 duration-500 px-[10px] py-1'>view record</button>
-                
+                </Link>
         </div>
 
         {/* student 05 */}
@@ -80,8 +84,9 @@ const StudentDetails = () => {
 
                 <div></div>
                 <div className='text-center'>Available</div>
+                <Link to="/admin/student_details/student_record">
                 <button className='bg-slate-600 cursor-pointer hover:scale-105 duration-500 px-[10px] py-1'>view record</button>
-                
+                </Link>
         </div>
     </div>
   )
