@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { auth, db } from "../../../Services/FirebaseServises/FirebaseConfig";
+import { useNavigate } from 'react-router-dom';
 
 const SignUpForm = ({ toggleTurn }) => {
   const [firstName, setFirstName] = useState("");
@@ -10,6 +11,8 @@ const SignUpForm = ({ toggleTurn }) => {
   const [password, setPassword] = useState("");
   const [studentId, setStudentId] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,6 +41,8 @@ const SignUpForm = ({ toggleTurn }) => {
       setStudentId("");
       setPhoneNo("");
 
+
+      navigate('/login')
     } catch (error) {
       console.error("Error signing up:", error.message);
     }
@@ -54,7 +59,7 @@ const SignUpForm = ({ toggleTurn }) => {
               placeholder="First Name"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-              className="bg-[#1f1f1f] placeholder-slate-400 text-[#d0d0d0]  rounded-md px-2 py-2 my-2 border-blue-400 w-full"
+              className="bg-[#1f1f1f] placeholder-slate-400 text-[#d0d0d0]  rounded-md px-2 py-2 my-2 border-blue-400 w-[450px]"
             />
           </div>
           <div className="mb-4">

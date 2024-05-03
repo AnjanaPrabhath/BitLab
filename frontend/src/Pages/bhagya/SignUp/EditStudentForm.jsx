@@ -78,7 +78,7 @@ const EditStudentForm = () => {
         progress: undefined,
       });
 
-      navigate('/admin/student_details')
+      navigate('/student/student_details')
     } catch (error) {
       console.error("Error updating document: ", error);
     }
@@ -98,7 +98,7 @@ const EditStudentForm = () => {
                 placeholder="First Name"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="bg-[#1f1f1f] placeholder-slate-400 text-[#d0d0d0]  rounded-md px-2 py-2 my-2 border-blue-400 w-full"
+                className="bg-[#1f1f1f] placeholder-slate-400 text-[#d0d0d0]  rounded-md px-2 py-2 my-2 border-blue-400 w-[450px]"
               />
             </div>
             <div className="mb-4">

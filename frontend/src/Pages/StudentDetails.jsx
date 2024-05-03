@@ -40,7 +40,7 @@ const EditStudentForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      navigate('/admin/sandani/SignUp/edit_student_form')
+      navigate('/student/SignUp/edit_student_form')
     } catch (error) {
       console.error("Error updating document:", error);
       setError("Failed to update user details. Please try again.");
@@ -58,7 +58,7 @@ const EditStudentForm = () => {
             {userData && (
               <div className="flex flex-col gap-4">
                 <div>
-                  <label className="text-gray-400">First Name:</label>
+                  <label className="text-gray-400 ">First Name:</label>
                   <p className="text-white">{userData.firstName}</p>
                 </div>
                 <div>

@@ -35,7 +35,7 @@ const AdminPage = () => {
       </div>
 
       <div className='max-w-[1100px] mx-auto grid md:grid-cols-3 gap-8 mt-[100px] text-white text-xl'>
-      <Link to='/admin/student_details'>
+      <Link to='/student/student_details'>
           <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Student Details</button>
         </Link>
 
@@ -47,7 +47,7 @@ const AdminPage = () => {
           <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Learning Portal</button>
         </Link> 
 
-        <Link to='/admin/sandani/SignUp/edit_student_form'>
+        <Link to='/student/SignUp/edit_student_form'>
           <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Edit Personal details</button>
         </Link>
 
@@ -55,8 +55,8 @@ const AdminPage = () => {
           <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>Session Password</button>
         </Link>
 
-        <Link to='/admin/academic_period'>
-          <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>hello</button>
+        <Link to='/student/sessions'>
+          <button className='bg-[#191919] px-[100px] py-[40px] hover:scale-105 duration-500'>My Sessions</button>
         </Link>
           
       </div>

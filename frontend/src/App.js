@@ -12,6 +12,8 @@ import SessionPassword from "./Pages/SessionPassword";
 import SignUpPage from "./Pages/bhagya/SignUp/SignUpPage";
 import EditStudentForm from "./Pages/bhagya/SignUp/EditStudentForm";
 import CompilerSPage from "./Pages/sandani/Compiler/CompilerSPage";
+import TestSessionsPage from "./Pages/bhagya/Sessions/TestSessionsPage";
+import ViewSessionPage from "./Pages/bhagya/Sessions/ViewSessionPage";
 
 function App() {
   return (
@@ -27,7 +29,10 @@ function App() {
               path="/admin/sandani/learning_portal"
               element={<LearningPortal />}
             />
-            <Route path="/admin/student_details" element={<StudentDetails />} />
+            <Route
+              path="/student/student_details"
+              element={<StudentDetails />}
+            />
             <Route
               path="/admin/edit_personal_details"
               element={<EditPersonalDetails />}
@@ -37,18 +42,17 @@ function App() {
               element={<SessionPassword />}
             />
             <Route path="/admin/sandani/lab_sheet" element={<LabSheet />} />
+            <Route path="/SignUp/sign_up_page" element={<SignUpPage />} />
             <Route
-              path="/admin/sandani/SignUp/sign_up_page"
-              element={<SignUpPage />}
-            />
-            <Route
-              path="/admin/sandani/SignUp/edit_student_form"
+              path="/student/SignUp/edit_student_form"
               element={<EditStudentForm />}
             />
             <Route
-              path="/admin/sandani/Compiler/compiler_s_page"
-              element={<CompilerSPage />}
+              path="/student/viewOneSessions"
+              element={<ViewSessionPage />}
             />
+
+            <Route path="/student/sessions" element={<TestSessionsPage />} />
           </Routes>
         </BrowserRouter>
       </>

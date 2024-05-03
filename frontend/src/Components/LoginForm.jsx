@@ -69,11 +69,9 @@ const LoginForm = ({ toggleTurn }) => {
           </form>
           
           <p className='text-center'>If you don't have an account, 
-            <Link to='/registration'>
-              <span className='text-center underline'>register now</span>
-            </Link>
+            
           </p>
-          <Link to="/admin/sandani/SignUp/sign_up_page">
+          <Link to="/SignUp/sign_up_page">
             <button className='bg-[#06C6D5] my-5 px-4 py-1 w-full'>SIGN UP</button>              
           </Link>
         </div>
