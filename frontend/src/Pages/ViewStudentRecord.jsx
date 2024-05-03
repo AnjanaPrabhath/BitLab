@@ -19,9 +19,9 @@ const ViewStudentRecord = () => {
 
       {/* Question and Answer */}
 
-      <div className='max-w-[800px] bg-gray-700 my-[50px] mx-auto'>
+      <div className='max-w-[1000px] bg-gray-700 my-[50px] mx-auto'>
           
-          <div className='px-10'>
+            <div className='px-10'>
               <p className='py-3 '>Question Topic </p>
               <div>
                   <input type="text"
