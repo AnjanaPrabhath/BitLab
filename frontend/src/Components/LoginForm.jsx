@@ -20,9 +20,6 @@ const LoginForm = ({toggleTurn}) => {
             </div>
             <div>
 
-            
-            
-
               <Link to={LoginWithPassword}>
                 <button className='bg-blue-400 my-5 px-4 py-1 w-full' onClick={toggleTurn}>NEXT</button>              
               </Link>
