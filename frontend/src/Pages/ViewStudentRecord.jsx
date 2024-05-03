@@ -1,25 +1,25 @@
 import React from 'react'
-import Navbar from '../../Components/Navbar'
+import Navbar from '../Components/Navbar'
 import { Link } from 'react-router-dom'
 
-const AddQuestion = () => {
+const ViewStudentRecord = () => {
   return (
-    <div className='text-white'>
-      <Navbar/>
+    <div>
+        <Navbar/>
 
         <div className='flex max-w-[1100px] justify-between mx-auto mt-[50px]  text-white'>
-            <h2 className='flex flex-col font-medium text-3xl'>
-                Add Questions
-            </h2>
+          <h2 className='flex flex-col font-medium text-3xl'>
+              Personal Report
+          </h2>
 
-            <h3 className='font-light flex text-xl'>
-                logged in as : Dissanayake D M A P
-            </h3>
-        </div>
+          <h3 className='font-light flex text-xl'>
+              logged in as : Dissanayake D M A P
+          </h3>
+      </div>
 
-        {/* form to add questions */}
+      {/* Question and Answer */}
 
-        <div className='max-w-[800px] bg-gray-700 my-[50px] mx-auto'>
+      <div className='max-w-[800px] bg-gray-700 my-[50px] mx-auto'>
           
           <div className='px-10'>
               <p className='py-3 '>Question Topic </p>
@@ -43,8 +43,9 @@ const AddQuestion = () => {
               </div>
           </div>
         </div>
+ 
     </div>
   )
 }
 
-export default AddQuestion
+export default ViewStudentRecord

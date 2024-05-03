@@ -17,7 +17,7 @@ const Hero = () => {
             <div className='absolute w-[1300px] h-[530px] bg-black opacity-40'></div>
         
             {/* heading */}
-            <img className='mt-[70px] w-[100%] object-cover ml-[70px]' src={Poster} alt="" />
+            <img className='mt-[70px] w-[100%] object-cover ml-[5%]' src={Poster} alt="" />
 
               {/* meka hadala iwara na */}
               <div className='absolute w-full top-[20%] mx-auto '>

@@ -16,6 +16,8 @@ import SelectAddQuestion from './Pages/AJ/SelectAddQuestion';
 import SelectQuestion from './Pages/AJ/SelectQuestion';
 import AddQuestion from './Pages/AJ/AddQuestion';
 import SetPassword from './Pages/AJ/SetPassword';
+import StudentRecord from './Pages/StudentRecord';
+import ViewStudentRecord from './Pages/ViewStudentRecord';
 
 
 function App() {
@@ -28,19 +30,27 @@ function App() {
             <Route path='/' element={<LandingPage/>} />
             <Route path='/login' element={<LoginPage/>} />
             <Route path='/admin' element={<AdminPage/>} />
+
+            <Route path='/admin/student_details' element={<StudentDetails/>} />
+            <Route path='/admin/student_details/student_record' element={<StudentRecord/>} />
+            <Route path='/admin/student_details/view_student_record' element={<ViewStudentRecord/>} />
+
             <Route path='/admin/academic_period' element={<AcademicPeriod/>} />
             <Route path='/admin/academic_period/modules' element={<YearXsemesterX/>} />
             <Route path='/admin/academic_period/modules/question' element={<SelectAddQuestion/>} />
             <Route path='/admin/academic_period/modules/question/select' element={<SelectQuestion/>} />
             <Route path='/admin/academic_period/modules/question/add' element={<AddQuestion/>} />
+
             <Route path='/admin/set_password' element={<SetPassword/>} />
+
             <Route path='/admin/sandani/learning_portal' element={<LearningPortal/>} />
-            <Route path='/admin/student_details' element={<StudentDetails/>} />
+            
             <Route path='/admin/edit_personal_details' element={<EditPersonalDetails/>} />
             <Route path='/admin/session_password' element={<SessionPassword/>} />
             <Route path='/admin/sandani/SignUp/sign_up_page' element={<SignUpPage/>} />
             <Route path='/admin/sandani/lab_sheet' element={<LabSheet/>} />
             <Route path='/admin/sandani/Compiler/compiler_s_page' element={<CompilerSPage/>} />
+            
         </Routes>      
       </BrowserRouter>
 

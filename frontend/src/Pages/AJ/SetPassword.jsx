@@ -23,16 +23,12 @@ const SetPassword = () => {
 
             <h2 className='text-white text-xl py-8'>Enter your Admin Credentials</h2>
             <input type="password"
-                placeholder='new password'
+                placeholder='password'
                 className='text-center mt-[30px] w-[400px] bg-[#1f1f1f] placeholder-slate-400 text-[#d0d0d0]  rounded-md px-2 py-2 my-2 border-blue-400 '
-                />
-            <input type="password"
-                placeholder='confirm password'
-                className='text-center w-[400px] bg-[#1f1f1f] placeholder-slate-400 text-[#d0d0d0]  rounded-md px-2 py-2 my-2 border-blue-400'
                 />
 
             <Link to='/admin'>
-            <button className='bg-[#06C6D5] hover:bg-[#2df1ff] duration-300 my-5 px-8 py-2 ' >SUBMIT</button>
+            <button className='bg-[#06C6D5] hover:bg-[#2df1ff] duration-300 mt-[70px] px-8 py-2 ' >SUBMIT</button>
             </Link>
           </div>
         </div>
