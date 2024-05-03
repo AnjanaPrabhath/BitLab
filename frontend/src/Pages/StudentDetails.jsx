@@ -1,28 +1,65 @@
 import React from 'react';
-import { db, auth } from "../Services/FirebaseServises/FirebaseConfig"; // Import auth from Firebase
+import { db, auth } from "../Services/FirebaseServises/FirebaseConfig";
+import { collection, query, where, getDocs, Timestamp } from 'firebase/firestore';
+import { jsPDF } from "jspdf";
+import autoTable from 'jspdf-autotable'
 
 const StudentDetails = () => {
-  // Function to handle report generation
+  const generatePdf = (data) => {
+    const doc = new jsPDF();
+    const tableColumn = ["No", "Error Type", "Output", "Time"];
+    const tableRows = [];
+
+    data.forEach((item, index) => {
+      const reportData = [
+        (index + 1).toString(), // No
+        (item.status).toString(), // Error Type
+        (item.output).toString(), // Output
+        new Date(item.timeStamp.toDate()).toLocaleString() // Time
+      ];
+      tableRows.push(reportData);
+    });
+
+    doc.setFontSize(22);
+    doc.text('Weekly Error Report', 105, 20, null, null, 'center');
+    doc.setFontSize(12);
+    doc.text(`Created: ${new Date().toLocaleString()}`, 105, 30, null, null, 'center');
+    doc.text(`email: ${auth.currentUser.email || 'Unknown'}`, 20, 40);
+
+    autoTable(doc, {
+      head: [tableColumn],
+      body: tableRows,
+      startY: 50,
+    });
+
+    doc.save('weekly_error_report.pdf');
+  };
+
   const generateReport = async () => {
+    const userId = auth.currentUser.uid;
     try {
-      // Fetch all coding_history documents for the current user
-      const querySnapshot = await db.collection('users').doc('currentUser.uid').collection('coding_history').get();
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const dayOfWeek = today.getUTCDay();
+      const first = today.getUTCDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1);
+      const last = first + 6;
 
-      // Initialize an array to store error documents
+      const firstDayOfWeek = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), first));
+      const lastDayOfWeek = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), last, 23, 59, 59, 999));
+
+      const q = query(collection(db, "users", userId, "coding_history"), 
+              where("timeStamp", ">=", Timestamp.fromDate(firstDayOfWeek)),
+              where("timeStamp", "<=", Timestamp.fromDate(lastDayOfWeek)));
+      const querySnapshot = await getDocs(q);
+
       const errorDocuments = [];
-
-      // Iterate through the fetched documents
       querySnapshot.forEach(doc => {
         const data = doc.data();
-        // Check if the document contains an error (you may adjust this condition based on your data structure)
-        if (data.status === 'error') {
-          // If it's an error document, push it to the array
-          errorDocuments.push(data);
-        }
+        errorDocuments.push(data);
       });
-
-      // Generate the report using the errorDocuments array
-      console.log('Error report:', errorDocuments);
+      
+      generatePdf(errorDocuments);
+      console.log('Error Docs:', errorDocuments);
     } catch (error) {
       console.error('Error generating report:', error);
     }
@@ -30,9 +67,6 @@ const StudentDetails = () => {
 
   return (
     <div>
-      <div></div>
-      
-      {/* Report generation button */}
       <button
         className="fixed bottom-10 right-16 z-10 bg-[#06C6D5] text-black font-bold px-8 py-2 rounded-lg hover:bg-[#2df1ff]"
         onClick={generateReport}
