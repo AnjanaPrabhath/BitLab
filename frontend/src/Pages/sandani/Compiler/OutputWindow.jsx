@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { db } from "../../../Services/FirebaseServises/FirebaseConfig";
+import { db, auth } from "../../../Services/FirebaseServises/FirebaseConfig"; // Import auth from Firebase
 import { doc, setDoc, collection, serverTimestamp } from "firebase/firestore";
 
 const OutputWindow = ({ outputDetails }) => {
@@ -14,11 +14,13 @@ const OutputWindow = ({ outputDetails }) => {
         data = {
           status: "Compilation Error",
           output: atob(outputDetails?.compile_output),
-          
         };
         try {
+          // Get the current user ID
+          const userId = auth.currentUser.uid;
+          // Store data in Firestore under the current user's coding_history collection
           await setDoc(
-            doc(collection(db, "users", "1aeOP38ZS1fEqRXQ1RCB9vA16Nu2", "coding_history")),
+            doc(collection(db, "users", userId, "coding_history")),
             data
           );
 
@@ -39,7 +41,7 @@ const OutputWindow = ({ outputDetails }) => {
             atob(outputDetails.stdout) !== null
               ? atob(outputDetails.stdout)
               : "",
-           timeStamp: serverTimestamp()
+          timeStamp: serverTimestamp()
         };
 
         setOutput(
@@ -58,8 +60,11 @@ const OutputWindow = ({ outputDetails }) => {
               : "",
           timeStamp: serverTimestamp()
         };
+        // Get the current user ID
+        const userId = auth.currentUser.uid;
+        // Store data in Firestore under the current user's coding_history collection
         await setDoc(
-          doc(collection(db, "users", "1aeOP38ZS1fEqRXQ1RCB9vA16Nu2", "coding_history")),
+          doc(collection(db, "users", userId, "coding_history")),
           data
         );
         setOutput(
@@ -77,8 +82,11 @@ const OutputWindow = ({ outputDetails }) => {
           timeStamp: serverTimestamp()
         };
         try {
+          // Get the current user ID
+          const userId = auth.currentUser.uid;
+          // Store data in Firestore under the current user's coding_history collection
           await setDoc(
-            doc(collection(db, "users", "1aeOP38ZS1fEqRXQ1RCB9vA16Nu2", "coding_history")),
+            doc(collection(db, "users", userId, "coding_history")),
             data
           );
           console.log("Data stored in Firestore successfully!");

@@ -14,7 +14,7 @@ import CustomInput from "./CustomInput";
 import OutputDetails from "./OutputDetails";
 import ThemeDropdown from "./ThemeDropdown";
 import LanguagesDropdown from "./LanguagesDropdown";
-import { db } from "../../../Services/FirebaseServises/FirebaseConfig";
+import { db, auth } from "../../../Services/FirebaseServises/FirebaseConfig"; // Import auth from Firebase
 import { collection, setDoc, doc, serverTimestamp } from "firebase/firestore";
 
 const javascriptDefault = `/**
@@ -116,22 +116,24 @@ const CompilerSPage = () => {
                 let status = err.response?.status;
                 console.log("status", status);
                 if (status === 429) {
-                 let  data = {
-                    status: status,
-                    timeStamp: serverTimestamp()
-                    
-                    // timeStamp: FieldValue.serverTimestamp()
-                  };
-                  try {
-                    await setDoc(
-                      doc(collection(db, "users", "1aeOP38ZS1fEqRXQ1RCB9vA16Nu2", "coding_history")),
-                      data
-                    );
-          
-                    console.log("Data stored in Firestore successfully!");
-                  } catch (error) {
-                    console.error("Error storing data in Firestore:", error);
-                  }
+                    // Get the current user ID
+                    const userId = auth.currentUser.uid;
+                    // Create data to store in Firestore
+                    const data = {
+                        status: status,
+                        timeStamp: serverTimestamp()
+                    };
+                    try {
+                        // Store data in Firestore under the current user's coding_history collection
+                        await setDoc(
+                            doc(collection(db, "users", userId, "coding_history")),
+                            data
+                        );
+
+                        console.log("Data stored in Firestore successfully!");
+                    } catch (error) {
+                        console.error("Error storing data in Firestore:", error);
+                    }
                     console.log("too many requests", status);
 
                     showErrorToast(
@@ -155,130 +157,130 @@ const CompilerSPage = () => {
                     "a4288ae3a1msh179e9f4d34796d0p1d00bajsna89936e98d53",
             },
         };
-    try {
-      let response = await axios.request(options);
-      let statusId = response.data.status?.id;
+        try {
+            let response = await axios.request(options);
+            let statusId = response.data.status?.id;
 
-      // Processed - we have a result
-      if (statusId === 1 || statusId === 2) {
-        // still processing
-        setTimeout(() => {
-          checkStatus(token);
-        }, 2000);
-        return;
-      } else {
-        setProcessing(false);
-        setOutputDetails(response.data);
-        showSuccessToast(`Compiled Successfully!`);
-        console.log("response.data", response.data);
-        return;
-      }
-    } catch (err) {
-      console.log("err", err);
-      setProcessing(false);
-      showErrorToast();
+            // Processed - we have a result
+            if (statusId === 1 || statusId === 2) {
+                // still processing
+                setTimeout(() => {
+                    checkStatus(token);
+                }, 2000);
+                return;
+            } else {
+                setProcessing(false);
+                setOutputDetails(response.data);
+                showSuccessToast(`Compiled Successfully!`);
+                console.log("response.data", response.data);
+                return;
+            }
+        } catch (err) {
+            console.log("err", err);
+            setProcessing(false);
+            showErrorToast();
+        }
+    };
+
+    function handleThemeChange(th) {
+        const theme = th;
+        console.log("theme...", theme);
+
+        if (["light", "vs-dark"].includes(theme.value)) {
+            setTheme(theme);
+        } else {
+            defineTheme(theme.value).then((_) => setTheme(theme));
+        }
     }
-  };
+    useEffect(() => {
+        defineTheme("oceanic-next").then((_) =>
+            setTheme({ value: "oceanic-next", label: "Oceanic Next" })
+        );
+    }, []);
 
-  function handleThemeChange(th) {
-    const theme = th;
-    console.log("theme...", theme);
+    const showSuccessToast = (msg) => {
+        toast.success(msg || `Compiled Successfully!`, {
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    };
+    const showErrorToast = (msg, timer) => {
+        toast.error(msg || `Something went wrong! Please try again.`, {
+            position: "top-right",
+            autoClose: timer ? timer : 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    };
 
-    if (["light", "vs-dark"].includes(theme.value)) {
-      setTheme(theme);
-    } else {
-      defineTheme(theme.value).then((_) => setTheme(theme));
-    }
-  }
-  useEffect(() => {
-    defineTheme("oceanic-next").then((_) =>
-      setTheme({ value: "oceanic-next", label: "Oceanic Next" })
-    );
-  }, []);
-
-  const showSuccessToast = (msg) => {
-    toast.success(msg || `Compiled Successfully!`, {
-      position: "top-right",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
-  const showErrorToast = (msg, timer) => {
-    toast.error(msg || `Something went wrong! Please try again.`, {
-      position: "top-right",
-      autoClose: timer ? timer : 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
-
-  return (
-    
-    <>
-    <Navbar/>
-      <ToastContainer
-        position="top-right"
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-
-     
-
-<div className="h-4 w-full bg-gradient-to-r from-blue-900 via-blue-800 to-black"></div>
-    <div className="flex flex-row">
-        <div className="px-4 py-2">
-          <LanguagesDropdown onSelectChange={onSelectChange} />
-        </div>
-        <div className="px-4 py-2">
-          <ThemeDropdown handleThemeChange={handleThemeChange} theme={theme} />
-        </div>
-      </div>
-      <div className="flex flex-row space-x-4 items-start px-4 py-4">
-        <div className="flex flex-col w-full h-full justify-start items-end">
-          <CodeEditorWindow
-            code={code}
-            onChange={onChange}
-            language={language?.value}
-            theme={theme.value}
-          />
-        </div>
-
-        <div className="right-container flex flex-shrink-0 w-[30%] flex-col">
-          <OutputWindow outputDetails={outputDetails} />
-          <div className="flex flex-col items-end">
-            <CustomInput
-              customInput={customInput}
-              setCustomInput={setCustomInput}
+    return (
+        <>
+            <Navbar />
+            <ToastContainer
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
             />
-            <button
-              onClick={handleCompile}
-              disabled={!code}
-              className={classnames(
-                "mt-4 border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] px-4 py-2 hover:shadow transition duration-200 bg-white flex-shrink-0",
-                !code ? "opacity-50" : ""
-              )}
-            >
-              {processing ? "Processing..." : "Compile and Execute"}
-            </button>
-          </div>
-          {outputDetails && <OutputDetails outputDetails={outputDetails} />}
-        </div>
-      </div>
-      <Footer />
-    </>
-  );
+
+            <div className="h-4 w-full bg-gradient-to-r from-blue-900 via-blue-800 to-black"></div>
+            <div className="flex flex-row">
+                <div className="px-4 py-2">
+                    <LanguagesDropdown onSelectChange={onSelectChange} />
+                </div>
+                <div className="px-4 py-2">
+                    <ThemeDropdown
+                        handleThemeChange={handleThemeChange}
+                        theme={theme}
+                    />
+                </div>
+            </div>
+            <div className="flex flex-row space-x-4 items-start px-4 py-4">
+                <div className="flex flex-col w-full h-full justify-start items-end">
+                    <CodeEditorWindow
+                        code={code}
+                        onChange={onChange}
+                        language={language?.value}
+                        theme={theme.value}
+                    />
+                </div>
+
+                <div className="right-container flex flex-shrink-0 w-[30%] flex-col">
+                    <OutputWindow outputDetails={outputDetails} />
+                    <div className="flex flex-col items-end">
+                        <CustomInput
+                            customInput={customInput}
+                            setCustomInput={setCustomInput}
+                        />
+                        <button
+                            onClick={handleCompile}
+                            disabled={!code}
+                            className={classnames(
+                                "mt-4 border-2 border-black z-10 rounded-md shadow-[5px_5px_0px_0px_rgba(0,0,0)] px-4 py-2 hover:shadow transition duration-200 bg-white flex-shrink-0",
+                                !code ? "opacity-50" : ""
+                            )}
+                        >
+                            {processing ? "Processing..." : "Compile and Execute"}
+                        </button>
+                    </div>
+                    {outputDetails && <OutputDetails outputDetails={outputDetails} />}
+                </div>
+            </div>
+            <Footer />
+        </>
+    );
 };
 export default CompilerSPage;

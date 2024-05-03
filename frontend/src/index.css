@@ -6,3 +6,129 @@
 body{
   background-color: #000300;
 }
+
+.button {
+  background-color: #2a8ab7;
+  padding: 40px 60px;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.table-container {
+  overflow-x: auto;
+  padding: 0 20px; /* Add padding to the left and right sides */
+}
+
+.sessions-table {
+  width: calc(100% - 80px); /* Adjust the width to consider the added padding */
+  border-collapse: collapse;
+}
+
+.sessions-table th,
+.sessions-table td {
+  padding: 30px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.sessions-table th {
+  background-color: #333;
+  color: white;
+}
+
+.action-buttons button {
+  margin-right: 30px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.view-button {
+  background-color: #0d4f69;
+  color: white;
+}
+
+.view-button:hover {
+  background-color: #0056b3;
+}
+
+.report-button {
+  background-color: #549563;
+  color: white;
+}
+
+.report-button:hover {
+  background-color: #218838;
+}
+
+/* ViewSessionPage.css */
+
+.view-session-container {
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.session-header {
+  margin-bottom: 20px;
+}
+
+.session-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.session-info {
+  font-size: 14px;
+  color: #666;
+}
+
+.session-body {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.question-container,
+.code-container,
+.results-container {
+  flex: 1 1 100%;
+  margin-bottom: 20px;
+}
+
+.question-header,
+.code-header,
+.results-header {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.question-content,
+.code-content,
+.results-content {
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+  .question-container,
+  .code-container,
+  .results-container {
+    flex-basis: 100%;
+  }
+}
+

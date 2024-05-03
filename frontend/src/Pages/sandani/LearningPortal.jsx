@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
+import { db, auth } from '../../Services/FirebaseServises/FirebaseConfig'; // Import Firebase configuration
 import ProfileNavbar from '../../Components/ProfileNavbar';
+import { ToastContainer, toast } from 'react-toastify'; // Import toast notifications
+import 'react-toastify/dist/ReactToastify.css'; // Import toast styles
 
 const LearningPortal = () => {
   const [file, setFile] = useState(null);
@@ -17,9 +20,46 @@ const LearningPortal = () => {
   };
 
   // Function to save code snippet
-  const saveCodeSnippet = () => {
-    // Add your logic to save the code snippet
-    console.log('Code snippet saved:', codeSnippet);
+  const saveCodeSnippet = async () => {
+    try {
+      // Get the current user ID
+      const userId = auth.currentUser.uid;
+      
+      // Construct the data object to be saved in Firestore
+      const data = {
+        codeSnippet,
+        // Add more fields as needed, such as timestamp, file URL, etc.
+      };
+  
+      // Add the submission document to Firestore under the 'submissions' collection
+      await db.collection('submissions').doc(userId).set(data);
+  
+      // Show success toast
+      toast.success('Code snippet saved successfully!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+  
+      console.log('Code snippet saved successfully:', data);
+    } catch (error) {
+      console.error('Error saving code snippet:', error);
+  
+      // Show error toast
+      toast.error('Failed to save code snippet!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
   };
 
   return (
