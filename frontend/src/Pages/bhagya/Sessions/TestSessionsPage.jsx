@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import ProfileNavbar from '../../../Components/ProfileNavbar';
+import { db } from '../../../Services/FirebaseServises/FirebaseConfig';
+import { collection, getDocs } from 'firebase/firestore';
+
 
 const TestSessionsPage = () => {
   // State to hold the current user's information
   const [currentUser, setCurrentUser] = useState(null);
-
+  const [sessions, setSessions] = useState([]);
   // UseEffect to listen for changes in authentication state
   useEffect(() => {
     const auth = getAuth();
@@ -14,21 +17,25 @@ const TestSessionsPage = () => {
       if (user) {
         // User is signed in
         setCurrentUser(user);
+        fetchSessions();
       } else {
         // User is signed out
         setCurrentUser(null);
       }
     });
+    // Function to fetch sessions from Firestore 
+    const fetchSessions = async () => {
+      const userId = auth.currentUser.uid;
+      const querySnapshot = await getDocs(collection(db, "users", userId, "submission"));
+      const sessionsData = querySnapshot.docs.map(doc => ({
+        id: doc.id, // or other identifier from the document
+        ...doc.data()
+      }));
+      setSessions(sessionsData);
+    };
 
     return () => unsubscribe();
   }, []);
-
-  // Sample test sessions data
-  const sessions = [
-    { id: 1, title: 'Session 1', description: 'Description for session 1' },
-    { id: 2, title: 'Session 2', description: 'Description for session 2' },
-    { id: 3, title: 'Session 3', description: 'Description for session 3' }
-  ];
 
   return (
     <div>
@@ -54,14 +61,14 @@ const TestSessionsPage = () => {
               </tr>
             </thead>
             <tbody>
-              {sessions.map(session => (
+              {sessions.map((session, index) => (
                 <tr key={session.id}>
-                  <td>{session.id}</td>
+                  <td>{index + 1}</td>
                   <td>{session.title}</td>
                   <td>{session.description}</td>
                   <td>
                     <div className="action-buttons">
-                      <Link to="/student/viewOneSessions">
+                      <Link to={`/student/viewOneSessions/${session.id}`}>
                         <button className="view-button">View Session</button>
                       </Link>
                       <button className="report-button">Get Report</button>

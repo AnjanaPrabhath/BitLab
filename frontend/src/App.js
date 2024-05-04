@@ -35,7 +35,7 @@ function App() {
             <Route path='/admin/sandani/SignUp/sign_up_page' element={<SignUpPage/>} />
             <Route path='/admin/sandani/SignUp/edit_student_form' element={<EditStudentForm/>} />
             <Route path='/admin/sandani/Compiler/compiler_s_page' element={<CompilerSPage/>} />
-            <Route path='/student/viewOneSessions' element={<ViewSessionPage />} />
+            <Route path='/student/viewOneSessions/:sessionId' element={<ViewSessionPage />} />
             <Route path='/student/sessions' element={<TestSessionsPage  />} />
         </Routes>      
       </BrowserRouter>
