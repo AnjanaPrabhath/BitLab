@@ -28,7 +28,7 @@ const AdminPage = () => {
 
         {user && (
           <h3 className='font-light flex text-xl'>
-            ogged in as : {user.displayName || user.email}
+            Logged in as : {user.displayName || user.email}
           </h3>
         )}
 

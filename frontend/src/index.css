@@ -86,7 +86,7 @@ body{
 .session-title {
   font-size: 24px;
   font-weight: bold;
-  color: #333;
+  color: #b3afaf;
 }
 
 .session-info {
@@ -111,7 +111,7 @@ body{
 .results-header {
   font-size: 18px;
   font-weight: bold;
-  color: #333;
+  color: #e2dada;
 }
 
 .question-content,
