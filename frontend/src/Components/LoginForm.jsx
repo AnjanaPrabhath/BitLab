@@ -1,8 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import LoginWithPassword from './LoginWithPassword'
-import SignUpPage from '../Pages/sandani/SignUp/SignUpPage'
-
 
 
 const LoginForm = ({toggleTurn}) => {

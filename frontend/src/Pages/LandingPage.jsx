@@ -1,13 +1,13 @@
 import React from 'react'
 import Hero from '../Components/Hero'
 import Footer from '../Components/Footer'
-import Navbar from '../Components/Navbar'
+import HomeNavAdmin from '../Components/HomeNavAdmin'
 
 
 const LandingPage = () => {
   return (
     <div>
-      <Navbar/>
+      <HomeNavAdmin/>
       <Hero/>
       <Footer/>
     </div>
